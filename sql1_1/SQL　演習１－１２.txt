@@ -1,0 +1,171 @@
+１－12
+
+問１都道府県ごとに年齢の平均値を求め、３５歳以上５０歳未満のデータを取り出す。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出す。
+  prefecture,
+　//AVE(age)の列を取り出す。
+  AVE(age)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture
+//付随する条件を決める。
+HAVING
+//付随する条件を決める。
+  AVG(age) BETWEEN 35 AND 49
+;
+
+
+
+
+問２都道府県ごとに男性回答者のみの年齢の最高値を出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出す。
+  prefecture,
+　//MAX(age)の列を取り出す。
+  MAX(age)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//条件を決める。
+WHERE
+　//条件の入力
+  sex = '男'
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture
+//付随する条件を決める。
+HAVING
+　//付随する条件を決める。
+  MAX(age) > 60
+;
+
+
+
+問３著者ごとの書籍数を求め、登録数が３冊以上の情報だけを取り出す。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//authorの列を取り出す。
+  author,
+　//COUNT(isbn)の列を取り出す。
+  COUNT(isbn)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  author_books
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  author
+//付随する条件を決める。
+HAVING
+　//付随する条件を決める。
+  COUNT(isbn) >= 3
+;
+
+
+
+問４出版社と分類IDごとに登録数を求め、登録数が３冊未満の情報だけを出力する。
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//companyの列を取り出す。
+  company,
+　//idの列を取り出す。
+  id,
+　//COUNT(isbn)の列を取り出す。
+  COUNT(isbn)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  books
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  company,
+　//条件の入力
+  id
+//付随する条件を決める。
+HAVING
+　//付随する条件を決める。
+  COUNT(isbn) < 3
+;
+
+
+
+問５以下のコードの誤り２点を答える。
+
+SELECT
+  depart_id,
+  count(*)
+FROM
+  employee
+WHERE
+  sex = 2 
+ORDER BY
+  depart_id
+WHERE
+  COUNT
+・sex='女性'が正しい。
+
+・
+
+
+
+問６アクセス日が既定の日付以降の情報について、リンク元URLごとにアクセス数を出力する。
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//refererの列を取り出す。
+  referer,
+　//count(*)の列を取り出す。
+  count(*)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  access_log
+//条件を決める。
+WHERE
+　//条件の入力。
+  access_date >= '2013-01-01'  
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力。
+  referer
+//付随する条件の入力
+HAVING
+　//条件の入力。
+  count(*) < 5
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力。
+  count(*)  DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

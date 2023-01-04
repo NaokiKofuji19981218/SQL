@@ -1,0 +1,121 @@
+１－8
+
+問１テーブルbooksから刊行日が新しいものを３件目から５件目まで出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//titleの列を取り出す。
+  title,
+　//publish_dateの列を取り出す。
+  publish_date
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  books
+//情報を並べる順序を決める。　
+ORDER BY
+  //条件の入力
+  publsh_date DESC 
+//並べる件数を決める。　
+LIMIT
+  //条件の入力
+  3,5
+;
+
+
+
+
+問２テーブルquestから回答日時が新しいものを先頭から１０件まで出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//nameの列を取り出す。　
+  name,
+　//answer1の列を取り出す。
+  answer1,
+　//answer2の列を取り出す。
+  answer2
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  date DESC 
+//並べる件数を決める。
+LIMIT
+  //条件の入力
+  10
+;
+
+
+
+
+問３テーブルrentalから未返却かつ貸出日が古いものから順に出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//user_idの列を取り出す。　
+  user_id,
+　//isbnの列を取り出す。　
+  isbn,
+　//rental_dateの列を取り出す。
+  rental_date
+//何のテーブルからデータを取り出すか
+FROM  
+  //参照するテーブル名の入力
+  rental
+//条件を決める。
+WHERE
+  //条件の入力
+  date = '0'
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  rental_date ASC 
+//並べる件数を決める。
+LIMIT
+  //条件の入力
+  5
+;
+
+
+問４以下のコードから間違いを2点答える。
+SELECT
+  page_id,
+  referer,
+  id_address
+FROM
+  access_log
+ORDER BY
+  access_date ASC
+LIMIT
+  10,0
+;
+・10,0　ではなく　0,10が正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

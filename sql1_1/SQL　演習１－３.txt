@@ -1,0 +1,64 @@
+１－３
+
+問１テーブルquestから都道府県名の列を重複なしで取り出す。
+
+//SELECT命令を出力する。テーブルから重複のないデータを取り出す。
+SELECT　DISTINCT
+　//prefectureの列を取り出す。
+  prefecture
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+;
+
+
+
+
+問２テーブルaccess_logからリンク元URLの列を重複なしで取り出す。
+
+//SELECT命令を出力する。テーブルから重複のないデータを取り出す。
+SELECT　DISTINCT
+　//url_nameの列を取り出す。
+  url_name
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  access_log
+;
+
+
+
+
+
+問３テーブルusrからユーザー氏名の列を姓と名の重複なしで取り出す。
+//SELECT命令を出力する。テーブルから重複のないデータを取り出す。
+SELECT DISTINCT
+　//l_nameの列を取り出す。
+  l_name,
+　//f_nameの列を取り出す。
+  f_name,
+
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  usr
+;
+
+
+
+
+
+問４以下のコードから間違いを2点答える。
+
+SELECT ALL
+  class,
+  depart_id,
+FROM
+  employee
+;
+
+
+・ALLではなくDISTINCTである。
+
+・CLASSだけでよい。

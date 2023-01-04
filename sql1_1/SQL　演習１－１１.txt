@@ -1,0 +1,131 @@
+１－11
+
+問１小数点以下を四捨五入して、都道府県ごとの評価の平均値を求める。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出す。
+  prefecture,　
+　//valueの列の各々の値の小数点以下を四捨五入する。
+  ROUND(value) AS 価格
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture ASC
+;
+
+
+
+
+問２表示形式を決めて、貸出日が抽出された書籍情報を表示する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//isbnの列を取り出す。
+  isbn AS ISBNコード,
+　//rental_dateの列をDATE_FORMATに従って取り出す。
+　DATE_FORMAT(rental_date, '%Y/%M/%D') AS 貸出日 
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  rental
+//条件を決める。
+WHERE
+　//条件の入力
+  date = 0
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  rental_date ASC
+;
+
+
+
+問３利用者コードについて降順に並べたうえで、利用者と完全な住所を表示する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//l_name, f_nameの列をCONCATに従って取り出す。
+  CONCAT(l_name, f_name) AS 利用者,
+　//prefecture, city, addressの列をCONCATに従って取り出す。
+　CONCAT(prefecture, city, address) AS 住所
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  usr
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  code ASC
+;
+
+
+
+
+問４出版社ごとの書籍価格の平均値を求める。平均値が小数点になったら小数を切り捨てて表示する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//列COMPANYを取り出し、出版社と名前を付ける。
+  company AS 出版社,
+　//AVG(price)をFLOORに従って取り出し、価格平均と名前を付ける。
+　FLOOR(AVG(price)) AS 価格平均 
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  books
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  COMPANY 
+;
+
+
+
+
+問５以下のコードの誤り２点を答える。
+
+SELECT
+  depart_id,
+  class,
+  CONCAT('l_name','f_name') AS 指名
+FROM
+  employee
+ORDER BY
+  depart_id,
+  class DESC
+;
+
+
+
+
+・
+
+・
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
