@@ -1,0 +1,122 @@
+１－10
+
+問１テーブルproductから安い順に商品名と価格を出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//nameの列を取り出し、商品名と名前を付ける。
+  name AS '商品名',
+　//priceの列を取り出し、価格と名前を付ける。
+  price AS '価格',
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  product
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  price ASC 
+;
+
+
+
+
+問２テーブルquestから都道府県ごとの回答者の平均年齢を出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出し、都道府県と名前を付ける。　
+  prefecture　AS 都道府県,
+　//sexの列を取り出し、平均年齢と名前を付ける。　
+  AGE(age) AS 平均年齢
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture, 
+;
+
+
+
+問3テーブルusrから都道府県別のユーザー数を求める。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出し、都道府県と名前を付ける。　
+  prefecture　AS 都道府県,
+　//sexの列を取り出し、ユーザー数と名前を付ける。
+  COUNT(*) AS ユーザー数
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture, 
+;
+
+
+
+
+問４テーブルbooksから出版社ごとの書籍価格の最大値を算出する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//publishの列を取り出し、出版社と名前を付ける。
+  publish　AS 出版社,
+　//AVG(price)の列を取り出し、出版社と名前を付ける。
+  AVG(price) AS 平均価格
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  books
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  publish
+;
+
+
+問5以下のコードの誤り２点を答える。
+SELECT
+  prefecture,
+  sex,
+  age,
+  AVG(answer1) IS 評価平均
+  
+FROM
+  quest
+GROUP BY
+  prefecture,
+  sex
+;
+・ORDERではなくGROUPが正しい。
+
+・
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

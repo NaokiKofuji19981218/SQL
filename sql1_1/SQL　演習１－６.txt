@@ -1,0 +1,135 @@
+１－6
+
+問１テーブルquestから性別が女性で、年齢が２０以上２９以下の情報だけを出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//全ての列を取り出す。
+  *
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//条件を決める。
+WHERE
+　　//条件の入力
+  　sex = '女性'
+　//条件の追加
+　AND
+　　//条件の入力
+    age BETWEEN 20 and 29  
+;
+
+
+
+
+問２テーブルusrから住所が東京で、emailアドレスのドメインがexample.comの情報を出力する
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//l_nameの列を取り出す。
+  l_name
+　//f_nameの列を取り出す。
+  f_name
+　//emailを取り出す。
+  email
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  usr
+//条件を決める。
+WHERE
+　　//条件の入力
+    ad = '東京'
+　//条件の追加
+  AND
+　　//条件の入力
+    email LIKE 'example.com' 
+;
+
+
+
+問３テーブルquestから感想欄がから出ない物の情報を出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//answer2の列を取り出す。
+  answer2
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//条件を決める。
+WHERE
+　//条件の入力
+  answer2 IS NOT NULL 
+
+;
+
+
+
+
+
+問4テーブルemployeeから山田奈美さんの情報を出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//すべての列を取り出す。
+  *
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  employee
+//条件を決める。
+WHERE
+　//条件の入力
+  l_name = '山田'
+　//条件の入力
+  f_name = '奈美'
+;
+
+
+
+
+
+問5以下のコードから間違いを2点答える。
+
+SELECT
+  isbn,
+  title
+FROM
+  books
+WHERE
+  　publish = '秀和システム'
+  AND
+ 　 publish = '日経BP'
+  OR 
+　　price < 3000
+・publishとpublishの間はORが正しい。
+・publishとpriceの間はANDが正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

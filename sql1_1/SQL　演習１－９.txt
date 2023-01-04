@@ -1,0 +1,110 @@
+１－9
+
+問１テーブルquestから性別ごとにそれぞれの年齢の最大値と最小値を出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//titleの列を取り出す。
+  sex,
+　//ageの列の最小値を取り出す。
+  MIN(age)
+　//ageの列の最大値を取り出す。
+  MAX(age)
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  sex 
+;
+
+
+
+
+問２テーブルquestから都道府県と性別ごとに本書の評価の平均を出力する
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT　
+　//prefectureの列を取り出す。　
+  prefecture,
+　//sexの列を取り出す。　
+  sex,
+　//reviewの列を取り出す。
+  review
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  quest
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  prefecture, 
+　//条件の入力
+  review 
+;
+
+
+
+問3テーブルsalesから店舗越の累計売上高を出力する
+
+SELECT　
+  id,
+  SUM(total)
+FROM
+  sales
+GROUP BY
+  id
+;
+
+
+
+
+問４テーブルbooksから出版社ごとの書籍価格の最大値を算出する
+
+SELECT　
+  company,
+  MAX(price)
+FROM
+  books
+GROUP BY
+  company
+;
+
+
+問5
+SELECT
+  page_id,
+  SUM(*)  
+FROM
+  access_log
+ORDER BY
+  page_id
+;
+・ORDERではなくGROUPが正しい。
+
+・
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

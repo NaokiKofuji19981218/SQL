@@ -1,0 +1,69 @@
+１－２
+
+問１テーブルbooksからtitleの列を取り出す。
+
+//SELECT命令を出力する。テーブルからデータを取り出す。
+SELECT
+  //titleの列を取り出す。
+  title
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  books
+;
+
+
+
+
+
+問２テーブルproductから商品名と単価の列を取り出す。
+
+//SELECT命令を出力する。テーブルからデータを取り出す。
+SELECT
+  //nameの列を取り出す。
+  name,
+  //priceの列を取り出す。
+  price
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  product
+;
+
+
+
+
+
+問３テーブルemployeeから社員の氏と名と役職の列を取り出す。
+
+//SELECT命令を出力する。テーブルからデータを取り出す。
+SELECT
+　//l_nameの列を取り出す。
+  l_name,
+　//f_nameの列を取り出す。
+  f_name,
+　//positionの列を取り出す。
+  position
+//何のテーブルからデータを取り出すか
+FROM
+  //参照するテーブル名の入力
+  employee
+;
+
+
+
+
+
+問４以下のコードから間違いを2点答える。
+
+SELECTS
+  title
+  publish
+FROM
+  books
+;
+
+
+・SELECTSではなくSELECTである。
+
+・titleの右隣に,を付ける
