@@ -1,0 +1,183 @@
+問１社員テーブルと所属部署テーブル、タイムカードテーブルを結合し、社員コードDA0001における
+　　２０１２年１２月分の勤務時間を日付について昇順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  d.depart_name AS 前のページ,
+　//e.f_nameの列を取り出す。
+  CONCAT(e.l_name,e.f_name) AS 所属部署名
+
+  t.work_time AS 勤務時間
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  (employee AS e
+  どのテーブル結合するか決める。
+  INNER JOIN
+    //結合するテーブル名の入力
+    depart AS d
+  //結合するためのコード
+  ON
+    //結合する。
+    e.depart_id = d.depart_id
+  )
+//どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  time_card AS t
+//結合するためのコード
+ON
+  //結合する。
+  e.s_id = d.a_id
+
+//条件を決める
+WHERE
+  //条件の入力
+  e.s_id = 'DA0001'
+//条件の入力
+AND
+  //条件の入力
+  tr_date BETWEEN '2012-12-01'  AND  '2012-12-31'
+
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  t.r_date  ASC
+;
+
+
+
+
+
+問２書籍目次テーブルから前後のコンテンツを出力する。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  departAS 前のページ,
+　//e.f_nameの列を取り出す。
+  cn.c_id AS 現在のページ,
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  contents AS cp
+  どのテーブル結合するか決める。
+  INNER JOIN
+    //結合するテーブル名の入力
+    contents AS cc
+  //結合するためのコード
+  ON
+    //結合する。
+    cp.c_id = cc.c_id
+//どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  contents AS cn
+//結合するためのコード
+ON
+  //結合する。
+  cc.c_id =cn.c_id
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  cc.c_id  ASC
+;
+
+
+
+
+
+
+問３社員テーブルからそれぞれの社員氏名と上司氏名を、社員コードについて昇順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。発注日,
+　//e.f_nameの列を取り出す。
+  ma.user_id.c_id AS 発注日,
+
+　//e.f_nameの列を取り出す。
+  ma.order_date.c_id AS 発注日,
+
+　//e.f_nameの列を取り出す。
+  CONCAT(us.l_name, us.f_name) AS 利用者氏名,
+
+
+　//e.f_nameの列を取り出す。
+  pr.p_name AS 発注日,
+
+　//e.f_nameの列を取り出す。
+  pr.price AS 発注日,
+
+　//e.f_nameの列を取り出す。
+  de.quantity AS 発注日,
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  ((order_main AS ma
+  どのテーブル結合するか決める。
+  INNER JOIN
+    //結合するテーブル名の入力
+    order_desc AS de 
+  //結合するためのコード
+  ON
+    //結合する。
+    ma.user_id = de.po_id)
+//どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  product AS pr
+//結合するためのコード
+ON
+  //結合する。
+  de.po_id =pr.p_id)
+
+INNER JOIN
+  //結合するテーブル名の入力
+  usr AS us
+//結合するためのコード
+ON
+  //結合する。
+  ma.user_id =us.user_id
+
+WHERE
+  ma.delivery_date IS NULL
+
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  ma.delivery_date  ASD,
+  ma.user_date  ASD,
+  de.p_id  ASD
+;
+
+
+
+問４以下のコードの誤りを２点答える。
+
+SELECT
+  cp.c_id AS 前のぺージ
+  cn.c_id AS 現在のページ
+FROM
+  contents AS cp
+OUTER JOIN
+  contents AS cn
+ON
+  cp.next_id <> cn.c_id
+ORDER BY
+  cn.c_id  ASC
+
+
+・OUTER JOIN　は　INNER JOIN　が正しい。
+
+
+・cp.next_id = cn.c_idが正しい。
+
+
+
+
+
+

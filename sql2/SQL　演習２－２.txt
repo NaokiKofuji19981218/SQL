@@ -1,0 +1,142 @@
+問１ユーザーテーブルと貸出記録テーブルから、ユーザーごとの貸し出し数を、
+　　貸出数が多い順に取得する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  e.l_name,
+　//e.f_nameの列を取り出す。
+  e.f_name,
+　//COUNT(r.id)の列を取り出す。
+  COUNT(r.id)
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  rental AS r
+どのテーブル結合するか決める。
+RIGHT JOIN
+  //結合するテーブル名の入力
+  usr AS u
+//結合するためのコード
+ON
+//結合する。
+  e.l_name = e.f_name
+
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  e.l_name,
+  e.f_name,
+//情報を並べる順序を決める。
+ORDER BY
+  COUNT(r.id)  DESC
+;
+
+
+
+
+
+問２社員テーブルと所属部署テーブルを結合し、
+　　所属社員が一人もいない「幽霊」部署を出力する」。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//d.depart_idの列を取り出す。
+  d.depart_id,
+　//d.depart_nameの列を取り出す。
+  d.depart_name
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  depart AS d
+どのテーブル結合するか決める。
+RIGHT JOIN
+  //結合するテーブル名の入力
+  employee AS e
+//結合するためのコード
+ON
+//結合する。
+  d.depart_id = e.depart_id
+//条件を決める。
+WHERE
+　//条件の入力
+  e.depart_id IS NULL
+;
+
+
+
+
+
+問３書籍情報テーブルと貸出記録テーブルとを結合し、書籍ごとの
+　　貸出数累計を、累計数が多い順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//b.titleの列を取り出す。
+  b.title,
+　//COUNT(r.isbn)の列を取り出す。
+  COUNT(r.isbn)
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  books AS b
+どのテーブル結合するか決める。
+RIGHT JOIN
+  //結合するテーブル名の入力
+  rental AS r
+//結合するためのコード
+ON
+//結合する。
+  b.isbn = r.isbn
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  b.isbn  
+ORDER BY
+　//条件の入力
+   COUNT(r.isbn) DESC
+
+;
+
+
+
+
+
+問４社員テーブルとタイムカードテーブルを結合し、社員ごとの勤務時間平均を
+　　平均時間の多い順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  e.l_name,
+　//e.f_nameの列を取り出す。
+  e.f_name,
+　//AVG(e.time)の列を取り出す。
+  AVG(e.time)
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  employee AS e
+//どのテーブル結合するか決める。
+RIGHT JOIN
+  //結合するテーブル名の入力
+  time_card AS t
+//結合するためのコード
+ON
+//結合する。
+  e.id =  t.id
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  e.l_name,
+　//条件の入力
+  e.f_name, 
+ORDER BY
+　//条件の入力
+  AVG(e.time) DESC
+//情報を並べる順序を決める。
+;
