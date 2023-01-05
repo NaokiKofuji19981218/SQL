@@ -1,0 +1,150 @@
+問１アンケート回答テーブルから回答者の平均年齢を超えている人の回答を
+　　評価の低い順に出力する。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  d.depart_name AS 前のページ,
+　//e.f_nameの列を取り出す。
+  CONCAT(e.l_name,e.f_name) AS 所属部署名
+
+  t.work_time AS 勤務時間
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  quest AS q
+
+//条件を決める
+WHERE
+
+//条件の入力
+age >
+(
+SELECT
+AVG(age)
+FROM
+quest
+)
+
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  answer1  ASD
+;
+
+
+
+
+
+
+問２所属部署テーブルから社員テーブルで使われていない部署コード、部署名の出力。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//depart_idの列を取り出す。
+  depart_id,
+　//depart_nameの列を取り出す。
+  depart_name
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  depart
+
+//表示の条件を決める
+WHERE 
+
+//表示の条件の表示
+NOT EXIST
+    //結合するテーブル名の入   
+ 　(SELECT
+      *
+    FROM
+      employee
+   WHERE
+     employee.depart_id = depart.depart_id
+　 )
+;
+
+
+
+
+
+
+問３店舗テーブルと月間売り上げテーブルから２０１２年１２月の売上高が店舗売り上げ平均を
+　　した回っている店舗名とその売上高を出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//depart_idの列を取り出す。
+  depart_id,
+　//depart_nameの列を取り出す。
+  depart_name
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  shop AS sh
+　
+
+  //追加するテーブル名の入力
+  INNER JOIN
+　  //参照するテーブル名の入力
+    sales AS sa
+  //結合するためのコード
+  ON 
+    //結合する。
+    sh.s_id = sa.s_id
+//表示の条件を決める
+WHERE 
+
+//条件の入力
+sa.s_date = '2012-12'
+  AND
+    sl.s_value<
+
+ 　(SELECT
+      AVG(s_value)
+    FROM
+      sales
+   WHERE
+     s_date = '2012-12' 
+　 )
+;
+
+
+問４貸出記録テーブル上を検索し、これまでに１度も貸出を行ったことの
+　　ないユーザーの氏名をユーザーテーブルから出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//depart_idの列を取り出す。
+  l_name,
+　//depart_nameの列を取り出す。
+  f_name
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  usr
+
+
+
+//条件の入力
+WHERE
+  NOT EXISTS
+    (SELECT
+       * 
+    FROM
+    rental
+WHERE
+  rental.user_id = usr.user_id
+  )
+
+
+
+
+
+

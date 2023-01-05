@@ -1,0 +1,156 @@
+問１社員テーブルとタイムカードテーブルから氏名と２０１２年１２月の勤務時間を、
+　　社員コード、日付について昇順で出力する。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  e.l_name,
+　//e.f_nameの列を取り出す。
+  e.f_name,
+　//t.r_dateの列を取り出す。
+  t.r_date,
+　//timeの列を取り出す。
+  t.work_time
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  employee AS e
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  time_card AS t
+//結合するためのコード
+ON
+//結合する。
+  e.employee = t.time_card
+//条件を決める。
+WHERE
+　//条件の入力
+  t.r_date BETWEEN '2012-12-01' AND  '2012-12-31'   
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  e.s_id ASC
+　//条件の入力
+  t.r_date ASC
+;
+
+
+
+
+
+問２店舗コードと月間売上テーブルから
+　　２０１２年１２月の売り上げを売上高の高い順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//esh.s_nameの列を取り出す。
+  sh.s_name,
+　//sa.s_valueの列を取り出す。
+  sa.s_value
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  shop AS sh
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  sales AS sa
+//結合するためのコード
+ON
+//結合する。
+  sh.s_id = sa.s_id
+
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  sa.s_value ASC
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  t.r_date  
+;
+
+
+
+
+
+
+問３店舗コードと月間売り上げテーブルから２０１２年の全売上高を、
+　　売上高の高い順に出力する。
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//esh.s_nameの列を取り出す。
+  sh.s_name,
+　//sl.s_valueの列を取り出す。
+  sa.s_value
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  shop AS sh
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  sales AS sa
+//結合するためのコード
+ON
+//結合する。
+  h.s_id = sa.s_id
+
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  sa.s_value DESC
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  t.r_date  
+;
+
+
+
+
+
+問４貸出記録テーブルとユーザーテーブルからそれぞれのユーザー
+　　について現在何冊を貸し出しているかを、貸出数の多い順に出力する。
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//esh.s_nameの列を取り出す。
+  e.l_name,
+　//sl.s_valueの列を取り出す。
+  e.f_name,
+　//sl.s_valueの列を取り出す。
+  re.number,
+　//sl.s_valueの列を取り出す。
+  us.number
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  rental AS re
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  usr AS us
+//結合するためのコード
+ON
+//結合する。
+  re.number =  us.number
+
+//条件を決める。
+WHERE
+　//条件の入力
+  r.returned = 0
+//情報を並べる順序を決める。
+ORDER BY
+　//条件の入力
+  re.number DESC
+//情報を並べる順序を決める。
+GROUP BY
+　//条件の入力
+  t.r_date  
+;
+
+
