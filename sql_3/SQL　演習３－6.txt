@@ -1,0 +1,131 @@
+問１問い合わせた結果を更新する。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　employee
+//更新対象の列を定める。
+SET
+　category_id='Z99'
+
+//条件を定める。
+WHERE
+depart_id
+
+//更新するデータの特定
+NOT IN
+(
+//列の特定
+SELECT
+  depart_id
+//テーブルの指定
+FROM
+　depart
+)
+;
+
+
+
+問2 問２をサブクエリを使って書きかえる。
+
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　employee
+//更新対象の列を定める。
+SET
+　category_id='Z99'
+//条件を定める。
+WHERE
+　//更新するデータの特定
+　NOT EXIST
+　(
+　　//列の特定
+　　SELECT
+  　　*
+　　//テーブルの指定
+　　FROM
+　　　depart
+　　//条件を定める。
+　　WHERE
+　　　depart.depart_id = employee.depart_id
+　)
+;
+
+
+
+問3ある列に情報を追加する。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定　
+　books
+//更新対象の列を定める。
+SET
+　CONCAT(
+　　　title,
+　(
+　//列の特定
+　SELECT
+　　　title
+　//テーブルの指定
+　FORM
+　　　category
+　)
+　
+　)
+　//条件を定める。
+　WHERE
+　　category.category_id = books.category_id
+;
+
+
+
+
+
+
+問4問い合わせた結果を更新する。
+
+//更新をする命令文
+UPDATE
+　rental
+//更新対象の列を定める。
+SET
+　category_id='XXXXXXX'
+　//条件を定める。
+WHERE
+　depart_id
+//更新するデータの特定
+IN
+　(
+　//列の特定
+　SELECT
+ 　 books
+　//テーブルの指定
+　FROM
+　　categorY_id
+　//条件を定める。
+　WHERE
+　　return = 9
+)
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
