@@ -1,0 +1,99 @@
+
+
+問１既存データの更新
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+  books
+//更新対象の列を定める。
+SET
+　isbn=CONCAT('ISBN', isbn),
+　price = price *1.05
+;
+
+
+
+
+問２メールアドレスの情報をクリアする。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　usr
+//更新対象の列を定める。
+SET
+　email = NULL
+;
+
+
+
+
+問3既存データの更新
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　product
+//更新対象の列を定める。
+SET
+　price = price *1.10
+;
+
+
+
+
+問4固定文字列の頭文字を取り除く
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　product
+//更新対象の列を定める。
+SET
+　isbn = REPLACE(isbn, 'ISBN', '')
+;
+
+
+
+
+
+問5以下のコードの２点の誤りを答える。
+
+UPDATE INTO
+  quest
+VALUES
+  sex = REPLACE(sex,'姓',' ')
+;
+
+
+・UPDATEが正しい
+
+・VALUESではなくSETが正しい。
+
+
+
+
+問６既存データの更新
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　employee
+
+//更新対象の列を定める。
+SET
+
+　　class=
+　　(
+      //条件分岐をする。
+　　　CASE
+        class
+  　　　  WHEN '部長' THEN 'リーダー',
+  　　　  WHEN '課長' THEN 'マネージャー',
+　　　　  ELSE class
+
+  　　END
+　　)
+;
+

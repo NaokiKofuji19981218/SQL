@@ -1,0 +1,104 @@
+問１条件を指定して、既存のデータの更新をする。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　books
+//更新対象の列を定める。
+SET
+　publish = 'WINGS出版',
+//条件を定める。
+WHERE
+　publish = '山田出版'
+;
+
+
+問２条件を指定して、既存のデータの更新をする。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　employee
+//更新対象の列を定める。
+SET
+　class = '山田奈美',
+　last_update = CURRENT_DATE
+//条件を定める。
+WHERE
+　l_name = '山田'
+　　AND
+　f_name = '奈美'
+;
+
+
+問３条件を指定して、既存のデータの更新をする。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　books
+//更新対象の列を定める。
+SET
+　price = price*0.1
+//条件を定める。
+WHERE
+　publish = '日経BP'
+;
+
+
+
+問4条件を指定して、既存のデータの更新をする。
+
+//更新をする命令文
+UPDATE
+  //テーブルの指定
+　rental
+//更新対象の列を定める。
+SET
+　returned = 9 
+//条件を定める。
+WHERE
+　rental_date < '2012-3-31'
+　　AND
+　returned = 0
+;
+
+
+
+
+
+問5以下のコードの２点の誤りを答える。
+
+UPDATE
+　rental
+
+SET
+　rental_date CURRENT_DATE 
+
+WHERE
+　user_id = 'B200405'
+　　OR
+　isbn = '4-0010-0000-1'
+;
+
+
+・rental_date = CURRENT_DATE が正しい。
+
+・ORではなくAND	が正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
