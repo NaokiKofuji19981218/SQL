@@ -1,0 +1,137 @@
+
+問１条件を指定して、情報を削除する
+
+//既存のデータを削除する命令文
+DELETE FROM
+　//テーブルの指定
+　employee
+//条件を定める。
+WHERE
+　depart_id
+//更新するデータの特定
+NOT IN
+　(
+　　//列の特定
+　　SELECT
+　　　depart_id
+　　//テーブルの指定
+　　FROM
+　　　depart
+　)
+;
+
+
+
+問2　問１の内容を相関サブクエリを使って書き換える。
+
+//既存のデータを削除する命令文
+DELETE FROM
+　//テーブルの指定
+　employee
+//条件を定める。
+WHERE
+//更新するデータの特定
+NOT EXIST
+　(
+　//列の特定
+　SELECT
+　　depart.depart_id
+　//テーブルの指定
+　FROM
+　　depart
+//条件を定める。
+WHERE
+  depart.depart_id = employee.depart_id
+)
+;
+
+
+
+
+
+
+問3条件を指定して、情報を削除する
+
+//既存のデータを削除する命令文
+DELETE FROM
+  //テーブルの指定
+  sales
+//条件を定める。
+WHERE
+//更新するデータの特定
+NOT EXIST
+ (
+　//列の特定
+  SELECT
+    shop.s_id
+　//テーブルの指定
+  FROM
+   shop
+//条件を定める。
+WHERE
+  shop.s_id = sales.s_id
+)
+;
+
+
+
+問4条件を指定して、情報を削除する
+
+DELETE FROM
+  //テーブルの指定
+  books
+//条件を定める。
+WHERE
+//更新するデータの特定
+IN
+  (
+　//列の特定
+  SELECT
+    isbn
+　//テーブルの指定
+  FROM
+    rental
+//条件を定める。
+WHERE
+  return = 9
+)
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

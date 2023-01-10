@@ -1,0 +1,73 @@
+問１既存データの削除
+
+//既存のデータを削除する命令文
+DELETE FROM
+  //テーブルの指定
+　sales
+//条件を定める。
+WHERE
+　s_date <= '2011-12-31'
+　　AND
+　returned = 1
+;
+
+
+
+問2既存データの削除
+
+既存のデータを削除する命令文
+DELETE FROM
+　//テーブルの指定
+　access_log
+//条件を定める。
+WHERE
+　s_date <= '2012-06-01'
+AND
+　(referer IS NULL OR referer = ' ')
+;
+
+
+
+問3
+
+DELETE FROM
+employee
+
+WHERE
+lsat_update <= '2007-03-31'
+AND
+retired = 1
+;
+
+
+
+問４以下のコードの２点の誤りを答える。　
+
+DELETE
+　books
+
+WHERE
+　category_id = 'Z9999'
+　　AND
+　category_id IS NULL
+;
+
+・DELETE FROM　が正しい。
+
+・AND　ではなく  ORが正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
