@@ -1,0 +1,123 @@
+問１書籍目次テーブルから現在のコンテンツコードと前のコンテンツコードを、現在のコンテンツコードに
+　　ついて昇順で出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//e.l_nameの列を取り出す。
+  cp.c_id AS 前のページ,
+　//e.f_nameの列を取り出す。
+  cn.c_id AS 現在のページ,
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  contents AS cp
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  contents AS cn
+//結合するためのコード
+ON
+//結合する。
+  cp.c_id = cn.c_id
+
+//情報を並べる順序を決める。
+ORDER BY
+  cn.c_id  DESC
+;
+
+
+
+
+
+問２メニューテーブルからそれぞれのメニューに対応する親メニュー名を
+　　メニューコードについて昇順に出力する。
+
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//mc.titleの列を取り出す。
+  mc.title AS メニュー名
+　//mn.titleの列を取り出す。
+  mp.title AS 親メニュー名
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  menu AS mc
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  menu AS mn
+//結合するためのコード
+ON
+  //結合する。
+  mc.parent = mn.page_id
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  mc.page_id  DESC
+
+;
+
+
+
+
+
+問３社員テーブルからそれぞれの社員氏名と上司氏名を、社員コードについて昇順に出力する。
+
+//SELECT命令を出力する。テーブルからデータを取り出す
+SELECT
+　//CONCAT(e.l_name, e.f_name)の列を取り出す。
+  CONCAT(e.l_name, e.f_name) AS 社員氏名,
+　//mn.titleの列を取り出す。
+  CONCAT(eu.l_name, eu.f_name)  AS  上司氏名
+
+//何のテーブルからデータを取り出すか
+FROM
+　//参照するテーブル名の入力
+  employee AS e
+どのテーブル結合するか決める。
+INNER JOIN
+  //結合するテーブル名の入力
+  employee AS eu
+//結合するためのコード
+ON
+  //結合する。
+  e.b_id = eu.s_id
+//情報を並べる順序を決める。
+ORDER BY
+  //条件の入力
+  e.s_id  ASC
+
+;
+
+
+
+
+
+問４以下のコードの誤りを２点答える。
+
+SELECT
+  cp.c_id AS 前のぺージ
+  cn.c_id AS 現在のページ
+FROM
+  contents AS cp
+OUTER JOIN
+  contents AS cn
+ON
+  cp.next_id <> cn.c_id
+ORDER BY
+  cn.c_id  ASC
+
+
+・OUTER JOIN　は　INNER JOIN　が正しい。
+
+
+・cp.next_id = cn.c_idが正しい。
+
+
+
+
+
+
