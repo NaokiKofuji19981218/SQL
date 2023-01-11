@@ -1,0 +1,179 @@
+
+問１テーブルを新規作成。
+
+//テーブルを作成するための命令文
+CREATE TABLE
+　//テーブル名
+  author
+  (
+    //新しいテーブルに含まれる列
+    author_id CHAR(5) NOT NULL,
+    //新しいテーブルに含まれる列
+    name_VARCHAR(30), 
+    //新しいテーブルに含まれる列
+    name_kana VARCHAR(100),
+    //新しいテーブルに含まれる列
+    birth DATE
+  )
+;
+
+
+問2テーブルを新規作成。
+
+//テーブルを作成するための命令文
+CREATE TABLE
+　//テーブル名
+  order_desc
+    (
+ 　   //新しいテーブルに含まれる列
+　　　p_id CHAR(10) NOT NULL,
+ 　   //新しいテーブルに含まれる列　　　
+　　　name_VARCHAR(30), 
+ 　   //新しいテーブルに含まれる列
+　　　name_kana VARCHAR(100),
+ 　   //新しいテーブルに含まれる列
+　　　birth DATE
+)
+;
+
+
+問3テーブルを新規作成。
+
+//テーブルを作成するための命令文
+CREATE TABLE
+　//テーブル名
+  sales
+    (
+ 　   //新しいテーブルに含まれる列
+      s_id CHAR(79) NOT NULL,
+ 　   //新しいテーブルに含まれる列
+      s_date date NOT NULL,
+ 　   //新しいテーブルに含まれる列
+      s_value_INT
+  　   //新しいテーブルに含まれる列
+      PRIMARY KEY (s_id, s_date)
+)
+;
+
+
+
+
+問4テーブルを新規作成。
+
+//テーブルを作成するための命令文
+CREATE TABLE
+　//テーブル名
+  books
+    (
+ 　   //新しいテーブルに含まれる列
+      isbn CHAR(17),
+ 　   //新しいテーブルに含まれる列
+      title VARCHAR(255),
+ 　   //新しいテーブルに含まれる列
+      price INT,
+ 　   //新しいテーブルに含まれる列
+      publish VARCHAR(30),
+ 　   //新しいテーブルに含まれる列
+      publish_date DATE,
+ 　   //新しいテーブルに含まれる列
+      category_id CHAR(5),
+  　  //新しいテーブルに含まれる列
+      PRIMARY KEY(isbn)
+)
+;
+
+
+
+
+
+
+問5以下のコードの誤り２点を答える。
+
+
+CREATE TABLE INTO
+  rental
+    (
+
+      id INT AUTO_INCREMENT,PRIMARY KEY
+      USER_ID CHAR(7),
+      isbn CHAR(13),
+      rental_date DATE,
+      returned SMALLEST DEFAULT 0
+)
+;
+
+・CREATE TABLEが正しい。
+
+・id INT AUTO_INCREMENT PRIMARY KEY が正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
