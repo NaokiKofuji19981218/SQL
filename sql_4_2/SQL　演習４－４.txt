@@ -1,0 +1,57 @@
+
+問１テーブルにおける列の定義を変える。
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  books
+//定義を変える列の指定
+MODIFY
+  publish VARCHAR(100) NULL
+;
+
+
+問2テーブルにおける列の定義を変える。
+
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  employee
+//定義を変える列の指定
+MODIFY
+　//追加する列の条件
+  l_name VARCHAR(50) NOT NULL
+　//追加する列の条件
+  f_name VARCHAR(50) NOT NULL
+;
+
+
+
+問3テーブルにおける列の定義を変える。
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  author
+//定義を変える列の指定
+MODIFY
+　//追加する列の条件
+  name VARCHAR(100) DEFAULT 'NULL'
+;
+
+
+
+
+問4以下のコードの誤り２点を答える。
+
+ALTER TABLE
+  access_log
+MODIFY with
+  referer,VARCHAR(200),NULL
+;
+
+
+・MODIFY with　ではなく、　MODIFYが正しい。
+
+・referer,VARCHAR(200),NULL ではなく、referer　VARCHAR(200)　NULLが正しい。

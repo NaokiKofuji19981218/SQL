@@ -1,0 +1,130 @@
+
+問１テーブルに対して列を追加。
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  books
+//追加する列の指定
+ADD
+　//追加する列の条件
+  page INT DEFAULT NOT 0 NOT NULL
+//追加する列の指定
+ADD
+　//追加する列の条件
+  rating CHAR(1) DEFAULT 'B' NOT NULL
+//どこの列の後ろに追加するかを決める。
+AFTER
+　category_id
+;
+
+
+
+
+
+問2列を追加することによるテーブルの作成。
+
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  sales
+  (
+　 //追加する列の条件
+   s_id CHAR(5) NOT NULL,
+　 //追加する列の条件
+   s_date DATE NOT NULL,
+   //追加する列の条件 
+   s_value INT DEFAULT 0
+  )
+//追加する列の指定
+ADD
+   //追加する列の条件 
+  rating CHAR(1) DEFAULT 'B' NOT NULL
+//どこの列の後ろに追加するかを決める。
+AFTER
+　category_id
+;
+
+
+
+問3テーブルに対して列を追加。
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  books
+//追加する列の指定
+ADD
+  //追加する列の条件 
+  sales INT 
+//どこの列の後ろに追加するかを決める。
+AFTER
+　category_id
+;
+
+
+
+問4テーブルに対して列を追加。
+
+//列を追加するテーブルを読み込む命令文
+ALTER TABLE
+　//テーブルの指定
+  books
+//追加する列の指定
+ADD
+  //追加する列の条件 
+  sex VARCHAR(5) DEFAULT '男' 
+//どこの列の後ろに追加するかを決める。
+AFTER
+　f_name_kana
+//追加する列の指定
+ADD
+  //追加する列の条件 
+  sales VARCHAR(30)  
+//どこの列の後ろに追加するかを決める。
+AFTER
+　sex
+;
+
+
+問5以下のコードの誤り２点を答える。
+
+ALTER TABLE
+  employee
+ADD TO
+  email VARCHAR(255) NOT NULL 
+BEFORE
+　depart_id
+;
+
+・ADD TO ではなく、　ADD　が正しい。
+
+・BEFORE ではなく、　AFTERが正しい。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
