@@ -1,0 +1,84 @@
+2-1
+
+
+CREATE TABLE test_table
+(
+name_1   VARCHAR(20)
+,name_2     VARCHAR(20)
+)
+
+INSERT INTO test_table VALUES ('りんご','りんご')
+INSERT INTO test_table VALUES ('りんご','みかん')
+INSERT INTO test_table VALUES ('りんご','バナナ')
+INSERT INTO test_table VALUES ('みかん','りんご')
+INSERT INTO test_table VALUES ('みかん','みかん')
+INSERT INTO test_table VALUES ('みかん','バナナ')
+INSERT INTO test_table VALUES ('バナナ','りんご')
+INSERT INTO test_table VALUES ('バナナ','みかん')
+INSERT INTO test_table VALUES ('バナナ','バナナ')
+
+
+SELECT DISTINCT name_1, name_2 from test_table;
+;
+
+
+1-2
+
+CREATE TABLE test_table
+(
+district   VARCHAR(20)
+,name     VARCHAR(20)
+,price     int
+)
+
+INSERT INTO test_table VALUES ('東北','みかん'、100)
+INSERT INTO test_table VALUES ('東北','りんご'、100)
+INSERT INTO test_table VALUES ('東北','ぶどう'、100)
+INSERT INTO test_table VALUES ('東北','レモン'、100)
+INSERT INTO test_table VALUES ('東北','レモン'、100)
+INSERT INTO test_table VALUES ('東北','パイン'、100)
+INSERT INTO test_table VALUES ('東北','りんご'、100)
+INSERT INTO test_table VALUES ('東北','ぶどう'、100)
+INSERT INTO test_table VALUES ('東北','レモン'、100)
+INSERT INTO test_table VALUES ('東北','スイカ'、100)
+INSERT INTO test_table VALUES ('東北','りんご'、100)
+
+
+SELECT P1.District,P1.name,
+       MAX(P1.price) AS price,
+       COUNT(P2.name) + 1 AS rank_1
+
+FROM DistrictProducts P1 LEFT OUTER JOIN DistrictProducts P2
+  ON P1.district = P2.district
+ AND P1.price < P2.price
+GROUP BY P1.district, P1.name;
+
+
+
+
+
+1-3
+
+UPDATE DistrictProducts2 P1,
+
+
+SET ranking = (SELECT COUNT(P2.price) +1
+                 FROM DistrictProducts2 P2
+                WHERE P1.DISTRICT = P2.district
+                  AND P2.price > P1.price); DistrictProducts P1 LEFT OUTER JOIN DistrictProducts P2
+
+
+UPDATE DistrictProducts2 
+   SET ranking = 
+           SELECT P1.ranking
+               FROM(SELECT district,name,
+                     RANK() OVER(PARTITION BY district
+                              ORDER BY price DESC) AS ranking
+
+               FROM DistrictProducts2) P1
+           
+           WHERE P1.district = DistrictProducts2.district
+             AND P1.name = DistrictProducts2.name
+
+
+
