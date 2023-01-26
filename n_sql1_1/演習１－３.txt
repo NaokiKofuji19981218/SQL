@@ -1,0 +1,90 @@
+1-1
+
+CREATE TABLE Sql_Tbl
+
+(
+sql   INT
+,name   VARCHAR(20)
+)
+
+INSERT INTO test_table VALUES (1,'ディック')
+INSERT INTO test_table VALUES (2,'アン')
+INSERT INTO test_table VALUES (3,'ライル')
+INSERT INTO test_table VALUES (5,'カー')
+INSERT INTO test_table VALUES (6,'マリー')
+INSERT INTO test_table VALUES (8,'ベン')
+
+
+
+
+SELECT CASE WHEN COUNT(*) <> MAX(seq)
+            THEN '歯抜けあり'
+　　　　　　ELSE '歯抜けなし'　END AS gap
+  FROM SeqTbl; 
+
+
+1-2
+
+
+CREATE TABLE Students
+(
+student_id    INT        
+,dpt   VARCHAR(20)
+,sbmt_date    DATE
+)
+
+INSERT INTO test_table VALUES (100,'理学部','2005-10-10')
+INSERT INTO test_table VALUES (101,'理学部','2005-09-22')
+INSERT INTO test_table VALUES (102,'文学部',' ')
+INSERT INTO test_table VALUES (103,'文学部','2005-09-10')
+INSERT INTO test_table VALUES (200,'文学部','2005-09-22')
+INSERT INTO test_table VALUES (201,'工学部',' ')
+INSERT INTO test_table VALUES (202,'経済学部','2005-09-25')
+
+
+
+SELECT *
+FROM student_id
+WHERE date < '2020-10-1';
+
+
+1-3
+
+CREATE TABLE Items
+(      
+item   VARCHAR(20)
+)
+
+INSERT INTO test_table VALUES ('ビール')
+INSERT INTO test_table VALUES ('紙オムツ')
+INSERT INTO test_table VALUES ('自転車')
+
+
+
+CREATE TABLE ShopItems
+(      
+shop   VARCHAR(20)
+,item   VARCHAR(20)
+)
+
+INSERT INTO test_table VALUES ('仙台','ビール')
+INSERT INTO test_table VALUES (('仙台','紙オムツ')
+INSERT INTO test_table VALUES ('仙台','自転車')
+INSERT INTO test_table VALUES ('仙台','カーテン)
+INSERT INTO test_table VALUES (('東京','ビール')
+INSERT INTO test_table VALUES ('東京','紙オムツ')
+INSERT INTO test_table VALUES ('東京','自転車')
+INSERT INTO test_table VALUES ('大阪','テレビ')
+INSERT INTO test_table VALUES ('大阪','紙オムツ')
+INSERT INTO test_table VALUES ('大阪','自転車')
+
+
+
+
+
+SELECT SI.shop,
+       COUNT(SI.item) AS my_item_cnt,
+       (SELECT COUNT(item) FROM Item - COUNT(SI.item) AS diff_cnt)
+  FROM ShopItems SI, Item I
+ WHERE SI.Item = I.item
+ GROUP BY SI.shop;
